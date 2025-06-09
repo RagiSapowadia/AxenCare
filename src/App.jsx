@@ -18,41 +18,36 @@ import TestimonialSlider from './components/Hero/Testimonials';
 import PartnerSlider from './components/Services/PartnerSlider';
 import CareBeyondCoverage from './components/Banner/CareBeyond';
 
-
-
 const Home = () => (
-  <>
+  <main className="flex flex-col">
     <Hero />
-    <PartnerSlider/>
-    <CareBeyondCoverage/>
+    <PartnerSlider />
+    <CareBeyondCoverage />
     <Services />
     <Banner />
     {/* <Subscribe /> */}
-    <TestimonialSlider/>
+    <TestimonialSlider />
     <Banner2 />
-  </>
+  </main>
 );
-
 
 const App = () => {
   return (
-   
-      <div className="overflow-x-hidden bg-white text-dark">
-        <Navbar />
-        <div className='p-11'></div>
+    <div className="min-h-screen bg-white text-dark">
+      <Navbar />
+      <div className="pt-16">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/team" element={<OurTeam/>} />
+          <Route path="/team" element={<OurTeam />} />
         </Routes>
-        <Footer />
-        <AxenCareCopyright/>
       </div>
-   
+      <Footer />
+      <AxenCareCopyright />
+    </div>
   );
-
 }
 
 export default App

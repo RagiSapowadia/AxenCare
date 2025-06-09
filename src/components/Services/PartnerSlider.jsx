@@ -83,8 +83,8 @@ const PartnerSlider = () => {
   };
 
   return (
-    <section className="bg-white py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 font-sans">
-      <div className="max-w-7xl mx-auto text-center">
+    <section className="relative bg-white py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 font-sans">
+      <div className="max-w-7xl mx-auto text-center relative z-10">
         <p className="text-xl font-medium text-teal-600 mb-2">In Association With</p>
         <h2 className="text-4xl md:text-5xl font-extrabold text-green-600 leading-tight mb-12">
           most trusted experts
@@ -94,29 +94,29 @@ const PartnerSlider = () => {
           {/* Previous Button */}
           <button
             onClick={goToPrev}
-            className="absolute -left-4 sm:left-0 md:-left-12 lg:-left-20 top-1/2 -translate-y-1/2 bg-white p-2.5 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 z-10"
+            className="absolute -left-4 sm:left-0 md:-left-12 lg:-left-20 top-1/2 -translate-y-1/2 bg-white p-2.5 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 z-20"
             aria-label="Previous partner"
           >
             <ChevronLeftIcon className="h-6 w-6 text-gray-700" />
           </button>
 
-          {/* Logos Display */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center justify-items-center w-full max-w-5xl">
-            {visibleLogos.map((partner) => (
+          {/* Logo Container */}
+          <div className="flex items-center justify-center gap-8 overflow-hidden">
+            {visibleLogos.map((logo, index) => (
               <div
-                key={partner.id}
-                // Refined border and shadow to match the image more closely
-                className="flex items-center justify-center bg-white rounded-lg border border-gray-200 p-4 h-24 w-full max-w-[200px] shadow-sm"
+                key={index}
+                className="flex-shrink-0 transition-opacity duration-300"
+                style={{ width: `${100 / itemsPerPage}%` }}
               >
                 <img
-                  src={partner.imageUrl}
-                  alt={partner.name}
-                  className="max-h-full max-w-full object-contain"
+                  src={logo.imageUrl}
+                  alt={`Partner ${index + 1}`}
+                  className="w-full h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                   // Fallback for image loading errors
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = `https://placehold.co/150x50/cccccc/000000?text=Logo+Error`;
-                    e.target.alt = `Error loading ${partner.name} logo`;
+                    e.target.alt = `Error loading ${logo.name} logo`;
                   }}
                 />
               </div>
@@ -126,7 +126,7 @@ const PartnerSlider = () => {
           {/* Next Button */}
           <button
             onClick={goToNext}
-            className="absolute -right-4 sm:right-0 md:-right-12 lg:-right-20 top-1/2 -translate-y-1/2 bg-white p-2.5 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 z-10"
+            className="absolute -right-4 sm:right-0 md:-right-12 lg:-right-20 top-1/2 -translate-y-1/2 bg-white p-2.5 rounded-full shadow-md hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 z-20"
             aria-label="Next partner"
           >
             <ChevronRightIcon className="h-6 w-6 text-gray-700" />
