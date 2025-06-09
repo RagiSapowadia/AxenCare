@@ -1,76 +1,51 @@
+// src/components/PlansSection.jsx
 import React from 'react';
-import BannerPng from "../../assets/education.png"
-import { GrUserExpert } from "react-icons/gr";
-import { MdOutlineAccessTime } from "react-icons/md";
-import { FaBookReader } from "react-icons/fa";
-import { FadeUp } from "../Hero/Hero";
-import { motion } from "framer-motion";
+import HealthPlanCards from '../Subscribe/Subscribe'; // Assuming HealthPlanCards.jsx is in the same 'components' directory
 
 const Banner = () => {
-    return (
-        <section>
-        <div className="container py-14 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 space-y-6 md:space-y-0">
-        {/* Banner Image */}
-        <div className="flex justify-center items-center">
-          <motion.img
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            src={BannerPng}
-            alt=""
-            className="w-[350px] md:max-w-[450px] object-cover drop-shadow"
-          />
-        </div>
-        {/* Banner Text */}
-        <div className="flex flex-col justify-center">
-          <div className="text-center md:text-left space-y-12">
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl md:text-4xl font-bold !leading-snug"
-            >
-              The World's Leading Online learning Platform
-            </motion.h1>
-            <div className="flex flex-col gap-6">
-              <motion.div
-                variants={FadeUp(0.2)}
-                initial="initial"
-                whileInView={"animate"}
-                viewport={{ once: true }}
-                className="flex items-center gap-4 p-6 bg-[#f4f4f4] rounded-2xl hover:bg-white duration-300 hover:shadow-2xl"
-              >
-                <FaBookReader className="text-2xl" />
-                <p className="text-lg">10,000+ Courses</p>
-              </motion.div>
-              <motion.div
-                variants={FadeUp(0.4)}
-                initial="initial"
-                whileInView={"animate"}
-                viewport={{ once: true }}
-                className="flex items-center gap-4 p-6 bg-[#f4f4f4] rounded-2xl hover:bg-white duration-300 hover:shadow-2xl"
-              >
-                <GrUserExpert className="text-2xl" />
-                <p className="text-lg">Expert Instruction</p>
-              </motion.div>
-              <motion.div
-                variants={FadeUp(0.6)}
-                initial="initial"
-                whileInView={"animate"}
-                viewport={{ once: true }}
-                className="flex items-center gap-4 p-6 bg-[#f4f4f4] rounded-2xl hover:bg-white duration-300 hover:shadow-2xl"
-              >
-                <MdOutlineAccessTime className="text-2xl" />
-                <p className="text-lg">Lifetime Access</p>
-              </motion.div>
-            </div>
+  return (
+    <div className="min-h-screen bg-white font-sans overflow-hidden">
+      {/* Top Hero Section - Now using the image as a background */}
+      <div
+        className="relative  bg-right bg-no-repeat py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 flex flex-col  justify-start z-0"
+        style={{ backgroundImage: `url('https://axencare.in/wp-content/uploads/2025/04/illustrated-money.png')` }} /* Replace with the actual path to your image_89a4d4.png */
+      >
+        {/* Dark overlay to make text pop, if needed - adjust opacity */}
+        {/* <div className="absolute inset-0 bg-black opacity-10 z-10"></div> */}
+
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left z-20">
+          {/* Left Content (Text and Button) */}
+          <div className="lg:w-1/2 flex flex-col justify-center items-center lg:items-start mb-12 lg:mb-0 text-white">
+            <h1 className="text-3xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-4">
+              Our Plans, Your Peace of Mind
+            </h1>
+            <h2 className="text-green-300 text-2xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-bold italic leading-tight mb-8">
+              choose what fits you best
+            </h2>
+            <p className="text-base md:text-lg max-w-xxl mb-8 opacity-90">
+              With an array of services that range from diagnostic discounts to emergency room coverage, we are committed to providing you with the peace of mind you deserve.
+            </p>
+            <button className=" text-white text-lg font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-teal-600 transition-colors duration-300 shadow-lg">
+              START EXPLORING
+            </button>
+          </div>
+
+          {/* Right Content (Illustration from background image) */}
+          {/* Since image_89a4d4.png contains the illustration, we don't need a separate placeholder div here.
+              The illustration is part of the background image itself. */}
+          <div className="lg:w-1/2 h-64 md:h-80 lg:h-96 flex items-center justify-center">
+            {/* The illustration is part of the background image now */}
           </div>
         </div>
       </div>
-      </section>
-    );
-}
 
-export default Banner
+      {/* Pricing Cards Section - Positioned to sit on the wave of the background image */}
+      {/* We need to measure or visually estimate the correct negative margin to align with the wave. */}
+      <div className="relative z-10 -mt-20 md:-mt-36 lg:-mt-48 xl:-mt-52"> {/* Adjust these negative margins carefully */}
+        <HealthPlanCards/>
+      </div>
+    </div>
+  );
+};
+
+export default Banner;
