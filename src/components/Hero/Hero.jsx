@@ -38,11 +38,10 @@ const HeroSlider = () => {
   // }, []);
 
   return (
-    <section className="relative  font-sans text-white overflow-hidden py-16 md:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
+    <section className="relative bg-gradient-to-r from-teal-600 to-green-600 font-sans text-white overflow-hidden py-16 md:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Content */}
-        <div className="flex flex-col text-center lg:text-left z-10">
+        <div className="flex flex-col text-center lg:text-left">
           <p className="text-sm uppercase tracking-widest text-gray-200 mb-2">
             YOUR COMPLETE HEALTH AND WELLNESS PACKAGE
           </p>
@@ -99,14 +98,10 @@ const HeroSlider = () => {
             ))}
           </div>
         </div>
-
-      
-       
-
       </div>
-       {/* Bottom wave-like divider (approximated with a skewed div) */}
-       <div className="absolute bottom-0 left-0 w-full h-24 bg-white transform -skew-y-3 origin-bottom-left z-0"></div>
-
+      
+      {/* Bottom wave-like divider */}
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-white transform -skew-y-3 origin-bottom-left"></div>
     </section>
   );
 };
