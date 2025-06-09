@@ -13,15 +13,22 @@ import AboutUs from './pages/About';
 import ServicesPage from './pages/ServicesPage';
 import Contact from './pages/Contact';
 import OurTeam from './pages/OurTeam';
+import AxenCareCopyright from './components/Footer/CopyRight';
+import TestimonialSlider from './components/Hero/Testimonials';
+import PartnerSlider from './components/Services/PartnerSlider';
+import CareBeyondCoverage from './components/Banner/CareBeyond';
 
 
 
 const Home = () => (
   <>
     <Hero />
+    <PartnerSlider/>
+    <CareBeyondCoverage/>
     <Services />
     <Banner />
-    <Subscribe />
+    {/* <Subscribe /> */}
+    <TestimonialSlider/>
     <Banner2 />
   </>
 );
@@ -41,6 +48,7 @@ const App = () => {
           <Route path="/team" element={<OurTeam/>} />
         </Routes>
         <Footer />
+        <AxenCareCopyright/>
       </div>
    
   );
